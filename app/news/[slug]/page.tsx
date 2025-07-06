@@ -6,12 +6,9 @@ type Props = {
   };
 };
 
-export default async function Page({ params }: Props) {
-  if (!params?.slug) {
-    return <div>Invalid parameter</div>;
-  }
-
+export default async function Page({ params}: Props) {
+  console.log("params.slug:", params.slug);
   const data = await getNewsDetail(params.slug);
 
-  return <div>{data?.title || "No title available"}</div>;
+  return<div>{data.title}</div>
 }
